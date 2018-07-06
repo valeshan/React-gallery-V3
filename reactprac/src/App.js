@@ -24,7 +24,6 @@ class App extends Component {
   }
 
 
-
   handleTermChange(term){
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&content_type=1&tags=${term}&per_page=32&format=json&nojsoncallback=1`
     fetch(url).then(response=> {
@@ -55,7 +54,10 @@ class App extends Component {
         </Switch>
         {
           (this.state.text)?
-          <Images  pics = {this.state.pics} loading = {this.state.loading}/>
+          <div>
+            <p className = 'results-title'> {this.state.text} </p>
+            <Images  pics = {this.state.pics} loading = {this.state.loading}/>
+          </div>
           :
           <h3> Please select or type what images you want to see. </h3>
         }
