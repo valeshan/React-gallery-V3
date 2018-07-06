@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 
  const Balloons = props =>{
   return(
-    <p> Balloons</p>
+    <p className = 'results-title'> Balloons</p>
   )
 }
 

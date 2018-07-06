@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 
  const Computers = props =>{
   return(
-    <p> Computers</p>
+    <p className = 'results-title'> Computers</p>
   )
 }
 

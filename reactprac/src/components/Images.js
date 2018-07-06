@@ -7,8 +7,11 @@ const Images = props =>{
       return <Image key= {pic.id} pic = {pic} />
     })
     return (
-      <ul>
-      {imageList}
+      <ul className = 'photo-container'>
+      {(props.loading)?
+        <p>Data is loading...</p>
+        :
+        imageList}
       </ul>
     )
 }
