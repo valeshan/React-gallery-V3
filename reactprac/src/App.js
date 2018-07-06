@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Navigation from './LinkedComponents/Navigation';
+import Navigation from './components/LinkedComponents/Navigation';
 
-import Search from './Search';
-import Images from './Images';
-import Tiger from './LinkedComponents/Tiger';
-import Balloons from './LinkedComponents/Balloons';
-import Computers from './LinkedComponents/Computers';
-import Notfound from './Notfound';
+import Search from './components/Search';
+import Images from './components/Images';
+import Tiger from './components/LinkedComponents/Tiger';
+import Balloons from './components/LinkedComponents/Balloons';
+import Computers from './components/LinkedComponents/Computers';
+import Notfound from './components/Notfound';
 
-import apiKey from './Config/config';
+import apiKey from './config/Config';
 
 const apikey = apiKey;
 
@@ -24,14 +24,15 @@ class App extends Component {
   }
 
 
+
   handleTermChange(term){
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&content_type=1&tags=${term}&per_page=32&format=json&nojsoncallback=1`
-
     fetch(url).then(response=> {
        return response.json();
     }).then(res => {
-      this.setState({pics: res.photos.photo, loading: false})
-      console.log(res.photos)
+      this.setState({pics: res.photos.photo, loading: false, text: term})
+    }).catch((error)=>{
+      console.log(`There's been an error: ${error}`)
     })
   }
 
@@ -52,7 +53,12 @@ class App extends Component {
           <Route path = '/:topic' render = {() => <Search handleTermChange = {this.handleTermChange.bind(this)}/>} />
           <Route component = {Notfound} />
         </Switch>
-        <Images pics = {this.state.pics} />
+        {
+          (this.state.text)?
+          <Images  pics = {this.state.pics} loading = {this.state.loading}/>
+          :
+          <h3> Please select or type what images you want to see. </h3>
+        }
         </div>
       </BrowserRouter>
     );
