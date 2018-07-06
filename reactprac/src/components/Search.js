@@ -17,7 +17,6 @@ class Search extends Component {
     e.preventDefault();
     let path =`/${this.state.searchText}`;
     this.props.history.push(path);
-    console.log(this.props)
     this.props.handleTermChange(this.state.searchText);
   }
 
