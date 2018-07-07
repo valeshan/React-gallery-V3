@@ -26,7 +26,6 @@ a{
 
 .search-bar{
   padding-right: 12em;
-  margin-left: 10.5em;
 }
 
 .search-button{
@@ -39,8 +38,6 @@ a{
 
 .search-component{
   margin-top: 2em;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 button{
@@ -58,12 +55,15 @@ button:hover {
 /**Link Component **/
 
 .main-nav{
-  margin-left: 10em;
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .categoryComponent{
   margin-top: 5em;
-  margin-right: 1.5em;
+  margin-left: 1.5em;
   width: 6em;
   text-decoration: none;
   height: 2em;
@@ -79,7 +79,7 @@ button:hover {
 .results-title{
   margin-top: 2em;
   margin-bottom: 1.5em;
-  margin-left: 25em;
+  margin-left: 50em;
   font-weight: bold;
 }
 

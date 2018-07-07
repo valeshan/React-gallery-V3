@@ -24,6 +24,7 @@ class App extends Component {
   }
 
 
+
   handleTermChange(term){
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&content_type=1&tags=${term}&per_page=32&format=json&nojsoncallback=1`
     fetch(url).then(response=> {

@@ -23,7 +23,7 @@ class Search extends Component {
 
   render(){
     return(
-      <div className = 'search-component'>
+      <div className = 'search-component main-nav'>
         <form onSubmit = {this.handleSubmit}>
         <input className = 'search-bar' type = 'text' onChange = {e => this.onInputChange(e.target.value)} />
         {' '}
