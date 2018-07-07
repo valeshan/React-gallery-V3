@@ -24,7 +24,7 @@ class App extends Component {
   }
 
 
-
+//Search API with argument value from search component
   handleTermChange(term){
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&content_type=1&tags=${term}&per_page=32&format=json&nojsoncallback=1`
     fetch(url).then(response=> {
@@ -36,6 +36,7 @@ class App extends Component {
     })
   }
 
+//Go through API with argument from default navigation topics e.g. Tiger
   handleText(text){
     return this.handleTermChange(text);
   }
@@ -60,7 +61,10 @@ class App extends Component {
             <Images  pics = {this.state.pics} loading = {this.state.loading}/>
           </div>
           :
-          <h3> Please select or type what images you want to see. </h3>
+          (this.state.pics)?
+          <h3 className = 'new-search'> Please select or type what images you want to see. </h3>
+          :
+          <Notfound />
         }
         </div>
       </BrowserRouter>

@@ -38,6 +38,7 @@ a{
 
 .search-component{
   margin-top: 2em;
+  padding-left: 1.5em;
 }
 
 button{
@@ -76,17 +77,23 @@ button:hover {
 
 /**Results Component **/
 
+.new-search{
+  display: flex;
+  justify-content: center;
+}
+
 .results-title{
   margin-top: 2em;
   margin-bottom: 1.5em;
-  margin-left: 50em;
+  display: flex;
+  justify-content: center;
   font-weight: bold;
 }
 
 .photo-container {
   margin-top: 2em;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
 }
