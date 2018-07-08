@@ -27,11 +27,9 @@ class App extends Component {
   }
 
   componentDidMount(){
-    let tigerData = this.handleText('tiger');
-    let balloonsData = this.handleText('balloons');
-    let computersData = this.handleText('computers');
-    console.log(tigerData);
-    this.setState({tigerPics: tigerData, balloonsPics: balloonsData, computersPics: computersData})
+    this.handleTermChange('tiger');
+    this.handleTermChange('balloons');
+    this.handleTermChange('computers');
   }
 
 
@@ -41,16 +39,19 @@ class App extends Component {
     fetch(url).then(response=> {
        return response.json();
     }).then(res => {
+      if (term === 'tiger'){
+      this.setState({tigerPics: res.photos.photo})
+    } else if (term === 'computers'){
+      this.setState({computersPics: res.photos.photo})
+    } else if (term === 'balloons'){
+      this.setState({balloonsPics: res.photos.photo})
+    } else{
       this.setState({pics: res.photos.photo, loading: false, text: term})
+    }
+
     }).catch((error)=>{
       console.log(`There's been an error: ${error}`)
     })
-  }
-
-//Go through API with argument from default navigation topics e.g. Tiger
-  handleText(text){
-    console.log('getting data');
-    return this.handleTermChange(text);
   }
 
   render() {
@@ -60,9 +61,9 @@ class App extends Component {
         <Navigation />
         <Switch>
           <Route exact path = '/' render = {() => <Search handleTermChange = {this.handleTermChange.bind(this)} />} />
-          <Route path = '/tiger' render = {() => <Tiger handleText = {this.handleText('tiger')} />} />
-          <Route path = '/balloons' render = {() => <Balloons handleText = {this.handleText('balloons')} />} />
-          <Route path = '/computers' render = {() => <Computers handleText = {this.handleText('computers')} />} />
+          <Route path = '/tiger' render = {() => <Tiger pics = {this.state.tigerPics} />} />
+          <Route path = '/balloons' render = {() => <Balloons pics = {this.state.balloonsPics} />} />
+          <Route path = '/computers' render = {() => <Computers pics = {this.state.computersPics} />} />
           <Route path = '/:topic' render = {() => <Search handleTermChange = {this.handleTermChange.bind(this)}/>} />
           <Route component = {Notfound} />
         </Switch>

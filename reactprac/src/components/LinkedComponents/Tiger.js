@@ -1,12 +1,12 @@
 import React from 'react';
+import Images from '../Images';
 
 import {withRouter} from 'react-router-dom';
 
 
  const Tiger = props =>{
-   console.log(props)
   return(
-    <p> </p>
+    <Images pics = {props.pics} />
   )
 }
 
