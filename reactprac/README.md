@@ -1,3 +1,18 @@
+
+## Flickr Image Gallery using React
+
+The image gallery contains a search bar and 3 default topics and accesses Flickr's image library for your search term then posts them in a reasonably presentable format.
+
+
+To get started, please create a config file inside the 'config' folder located inside the 'src' folder, and name it 'Config.js'. Format it in the following way, with your own API key:
+
+```
+const apiKey = 'insert API key here';
+
+export default apiKey;
+```
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
