@@ -11,7 +11,7 @@ const apiKey = 'insert API key here';
 
 export default apiKey;
 ```
-
+Once you've installed all the dependencies, simply run ```npm start``` on your CLI and you're good to go!
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
