@@ -19,8 +19,19 @@ class App extends Component {
     this.state = {
       pics: [],
       text : '',
-      loading: true
+      loading: true,
+      tigerPics: [],
+      balloonsPics: [],
+      computersPics: []
     }
+  }
+
+  componentDidMount(){
+    let tigerData = this.handleText('tiger');
+    let balloonsData = this.handleText('balloons');
+    let computersData = this.handleText('computers');
+    console.log(tigerData);
+    this.setState({tigerPics: tigerData, balloonsPics: balloonsData, computersPics: computersData})
   }
 
 
@@ -38,6 +49,7 @@ class App extends Component {
 
 //Go through API with argument from default navigation topics e.g. Tiger
   handleText(text){
+    console.log('getting data');
     return this.handleTermChange(text);
   }
 
@@ -57,14 +69,11 @@ class App extends Component {
         {
           (this.state.text)?
           <div>
-            <p className = 'results-title'> {this.state.text} </p>
+            <h3 className = 'results-title'> {this.state.text} </h3>
             <Images  pics = {this.state.pics} loading = {this.state.loading}/>
           </div>
           :
-          (this.state.pics)?
-          <h3 className = 'new-search'> Please select or type what images you want to see. </h3>
-          :
-          <Notfound />
+          <h3 className = 'screen-text'> Please select or type what images you want to see. </h3>
         }
         </div>
       </BrowserRouter>

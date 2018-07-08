@@ -2,9 +2,9 @@ import React from 'react';
 
 const Notfound = () =>{
   return(
-    <div  className="not-found">
+    <div  className="screen-text">
       <h3>No Results Were Found</h3>
-      <p>You search did not return any results. Please try again.</p>
+      <p>You search did not return any results. Please rephrase or try another search query.</p>
     </div>
   )
 }

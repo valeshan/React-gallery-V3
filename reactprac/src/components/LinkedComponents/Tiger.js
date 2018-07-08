@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 
 
  const Tiger = props =>{
+   console.log(props)
   return(
     <p> </p>
   )
